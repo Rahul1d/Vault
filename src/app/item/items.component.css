@@ -1,0 +1,44 @@
+.fab-btn{
+    height: 80;
+    width: 80;
+    background-color: rgb(233, 59, 74);
+    border-radius: 50%;
+    font-size: 50;
+    color: aliceblue;
+    border-width: 2;
+    text-align: center;
+    android-elevation: 5;
+}
+
+.item{
+    font-size: 15;
+    padding: 5 20;
+}
+
+.ns-dark.item{
+    color: white;
+}
+
+.ns-dark.border{
+    background-color: rgb(133, 128, 128);
+    border-color: black;
+}
+
+.border{
+    border-bottom-width: 0.5;
+    background-color: whitesmoke;
+}
+
+.swipelayout{
+    width: 70;
+    padding-left: 15;
+    padding-right: 15;
+}
+
+.fa-icon{
+    font-size: 30;
+}
+
+.swipeGrid{
+    background-color: rgba(233, 0, 0, 0.3);
+}

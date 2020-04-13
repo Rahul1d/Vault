@@ -1,0 +1,50 @@
+<ActionBar>
+    <NavigationButton (tap)="onBackTap()" android.systemIcon="ic_menu_back" ></NavigationButton>
+    <Label text="Details" style="font-size: 20;"></Label>
+    <ActionItem 
+      ios.systemIcon="9" ios.position="right" (tap)="setEditable()"
+      android.systemIcon="ic_menu_edit" [visibility]="item.id ? 'visible' : 'collapsed'"></ActionItem>
+</ActionBar>
+
+<ScrollView>
+    <StackLayout class="page" verticalAlignment="center">
+        <GridLayout rows="auto auto auto auto auto" columns="auto">
+            <StackLayout row="0" width="100%" class="m-t-30">
+                <Label text="Website" class="label"></Label>
+                <TextField hint="Enter Website" class="input-field" [(ngModel)]="item.website" [editable]="editable"></TextField>
+            </StackLayout>
+            <StackLayout row="1" width="100%">
+                <Label text="User Name" class="label"></Label>
+                <TextField hint="Enter User Name" class="input-field" [(ngModel)]="item.username" [editable]="editable"></TextField>
+            </StackLayout>
+            <StackLayout row="2" width="100%" >
+                <Label text="Password" class="label"></Label>
+                <StackLayout orientation="horizontal" [visibility]="editable ? 'visible' : 'collapsed'">
+                    <TextField hint="Enter Password" [secure]="isSecure" class="input-field password" [(ngModel)]="item.password" #password>
+                    </TextField>
+                        <Label text="&#xf06e;" visibility="{{isSecure ? 'visible' : 'collapse'}}"  class="fas visible-icon" (tap)="checkPassword()"></Label>
+                        <Label text="&#xf070;" visibility="{{!isSecure && !canCopy ? 'visible' : 'collapse'}}" class="fas visible-icon" (tap)="isSecure = !isSecure"></Label>
+                        <Label text="&#xf0c5;" visibility="{{canCopy && !isSecure ? 'visible' : 'collapse'}}" class="far visible-icon" (tap)="copyToClipboard()"></Label>
+                </StackLayout>
+                <StackLayout orientation="horizontal" [visibility]="!editable ? 'visible' : 'collapsed'">
+                    <TextField hint="Enter Password" [secure]="isSecure" class="input-field password" [(ngModel)]="item.password" [isUserInteractionEnabled]="editable"  #password>
+                    </TextField>
+                        <Label text="&#xf06e;" visibility="{{isSecure ? 'visible' : 'collapse'}}"  class="fas visible-icon" (tap)="checkPassword()"></Label>
+                        <Label text="&#xf070;" visibility="{{!isSecure && !canCopy ? 'visible' : 'collapse'}}" class="fas visible-icon" (tap)="isSecure = !isSecure"></Label>
+                        <Label text="&#xf0c5;" visibility="{{canCopy && !isSecure ? 'visible' : 'collapse'}}" class="far visible-icon" (tap)="copyToClipboard()"></Label>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout row="3">
+                <Button  class="btn btn-primary" (tap)="saveItem()" [isEnabled]="checkFormNotBlank()">
+                    <FormattedString>
+                        <Span text="&#xf023;" class="fas"></Span>
+                        <Span text=" S A V E" class="fas"></Span>
+                    </FormattedString>
+                </Button>
+            </StackLayout>
+            <StackLayout row="4" horizontalAlignment="center">
+                <Label text="&#xf023;" class="fas fa-ico"></Label>
+            </StackLayout>
+        </GridLayout>
+    </StackLayout>
+</ScrollView>

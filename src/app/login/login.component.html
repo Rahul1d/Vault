@@ -1,0 +1,31 @@
+<ActionBar title="Password Vault" icon="" class="action-bar">
+</ActionBar>
+
+<FlexboxLayout class="login-page">
+    <StackLayout class="item" width=150 height="150" verticalAlignment="center">
+        <Image src="res://logo2" stretch="aspectFit"></Image>
+        
+    </StackLayout>
+    <PreviousNextView class="item">
+            <GridLayout rows="auto auto" class="form">
+                <StackLayout orientation="horizontal" row="0" class="border">
+                    <TextField class="input-field" [hint]="loginService?.masterExists ? 'Enter Master Password' : 'Create Master Password'" [secure]="isSecure" #passwordRef
+                        autocorrect="false"  [(ngModel)]="password">
+                    </TextField>
+                        <Label text="&#xf06e;" visibility="{{isSecure ? 'visible' : 'collapse'}}" class="fas visible-icon" (tap)="isSecure = !isSecure"></Label>
+                        <Label text="&#xf070;" visibility="{{!isSecure ? 'visible' : 'collapse'}}" class="fas visible-icon" (tap)="isSecure = !isSecure"></Label>
+
+                </StackLayout>
+                <StackLayout row="1">
+                    <Button [text]="loginService?.masterExists ? 'U N L O C K' : 'C R E A T E'" class="unlock-btn" [isEnabled]="password?.length > 0 && !processing"  #button
+                        (tap)="onUnlock()">
+                    </Button>
+                </StackLayout>
+            </GridLayout>
+    </PreviousNextView>
+
+    <FlexboxLayout class="icon-item">
+    <Label text="&#xf013;" class="fas fa-ico" #gear></Label>
+    </FlexboxLayout>
+    
+</FlexboxLayout>

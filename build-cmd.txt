@@ -1,0 +1,25 @@
+tns build android --release --key-store-path <path-to-your-keystore> --key-store-password <your-key-store-password> --key-store-alias <your-alias-name> --key-store-alias-password <your-alias-password>
+
+
+
+tns build android --release --key-store-path E:\NativeScript\keys\vault\vault.keystore --key-store-password 123456 --key-store-alias vault --key-store-alias-password 123456
+
+
+
+tns build android --bundle --env.uglify --env.aot --env.snapshot --release --key-store-path E:\NativeScript\keys\vault\vault.keystore --key-store-password 123456 --key-store-alias vault --key-store-alias-password 123456 --aab --copy-to E:\NativeScript\keys\vault\vault.aab
+
+
+
+
+keytool -genkey -v -keystore vault.keystore -alias vault -keyalg RSA -keysize 2048 -validity 10000
+
+
+java -jar "BUNDLE_TOOL_JAR_PATH" build-apks --bundle="BUNDLE_PATH" --output=YOUR_OUTPUT_NAME.apks
+
+
+java -jar bundletool-all.jar build-apks --bundle=vault.aab  --output=vault1.apks --mode=universal --ks=E:\NativeScript\keys\vault\vault.keystore --ks-pass=pass:123456 --ks-key-alias=vault --key-pass=pass:123456
+
+
+//For connected device:
+
+java -jar bundletool-all.jar build-apks --bundle=vault.aab  --output=vault1.apks --connected-device --ks=E:\NativeScript\keys\vault\vault.keystore --ks-pass=pass:123456 --ks-key-alias=vault --key-pass=pass:123456

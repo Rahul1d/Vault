@@ -1,0 +1,45 @@
+.input-field{
+    font-size: 18;
+    margin: 0 30;
+    /* border-width: 2; */
+}
+
+.label{
+    font-size: 14;
+    margin: 0 30;
+    font-weight: 500;
+    /* border-width: 2; */
+}
+
+.page{
+    margin: 10;
+    border-width: 2;
+}
+
+.m-t-30{
+    margin-top: 30 !important;
+}
+
+.btn{
+    background-color: rgb(233, 59, 80);
+    color: aliceblue;
+    margin-top: 30;
+}
+
+.fa-ico{
+    font-size: 120;
+}
+
+/* .border{
+     border-width: 2;
+} */
+
+.password{
+    width: 70%;
+    margin-right: 10;
+}
+
+.visible-icon{
+    font-size: 30;
+}
+
